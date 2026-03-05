@@ -1,6 +1,8 @@
 import Card from "../components/Card";
+import { useRef } from "react";
 
 const About = () => {
+  const grid2container = useRef();
   return (
     <section className="c-space section-spacing">
       <h2 className="text-heading">About me</h2>
@@ -16,16 +18,20 @@ const About = () => {
         </div>
         {/* Grid 2 */}
         <div className="grid-default-color grid-2">
-          <div className="flex items-center justify-center w-full h-full">
+          <div ref={grid2container} className="flex items-center justify-center w-full h-full">
             <p className="flex items-end text-5xl text-gray-500 ">CODE IS CRAFT </p>
-            <Card style={{rotate:"70deg", top:"30%", left:"20%"}}text="GRASP"/>
-            <Card style={{rotate:"30deg", top:"60%", left:"45%"}} text="SOLID"/>
-            <Card style={{rotate:"90deg", top:"30%", left:"70%"}} text="Design Patterns"/>
-            <Card style={{rotate:"-45deg", top:"55%", left:"0%"}} text="Design Principles"/>
-            <Card style={{rotate:"20deg", top:"10%", left:"38%"}}text="SRP"/>
-            <Card style={{rotate:"30deg", top:"70%", left:"70%"}} image="assets/logos/csharp-pink.png"/>
-            <Card style={{rotate:"-45deg", top:"70%", left:"25%"}} image="assets/logos/dotnet-pink.png"/>
-            <Card style={{rotate:"-45deg", top:"5%", left:"10%"}} image="assets/logos/blazor-pink.png"/>
+            <Card style={{rotate:"70deg", top:"30%", left:"20%"}}text="GRASP"
+            containerRef={grid2container}/>
+            <Card style={{rotate:"30deg", top:"60%", left:"45%"}} text="SOLID" containerRef={grid2container}/>
+            <Card style={{rotate:"90deg", top:"30%", left:"70%"}} text="Design Patterns"
+            containerRef={grid2container}/>
+            <Card style={{rotate:"-45deg", top:"55%", left:"0%"}} text="Design Principles"
+            containerRef={grid2container}/>
+            <Card style={{rotate:"20deg", top:"10%", left:"38%"}}text="SRP"
+            containerRef={grid2container}/>
+            <Card style={{rotate:"30deg", top:"70%", left:"70%"}} image="assets/logos/csharp-pink.png"containerRef={grid2container}/>
+            <Card style={{rotate:"-45deg", top:"70%", left:"25%"}} image="assets/logos/dotnet-pink.png"containerRef={grid2container}/>
+            <Card style={{rotate:"-45deg", top:"5%", left:"10%"}} image="assets/logos/blazor-pink.png"containerRef={grid2container}/>
           </div>
         </div>
         {/* Grid 3 */}
