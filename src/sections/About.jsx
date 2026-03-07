@@ -2,6 +2,7 @@ import Card from "../components/Card";
 import { useRef } from "react";
 import { Globe } from "../components/Globe";
 import CopyEmailButton from "../components/CopyEmailButton";
+import { Frameworks } from "../components/FrameWorks";
 
 const About = () => {
   const grid2container = useRef();
@@ -42,7 +43,7 @@ const About = () => {
             <p className="headtext">Time Zone</p>
             <p className="subtext">I'm based in India, and open to remote work worldwide </p>
           </div>
-          <figure className="absolute left-[30%] top=[10%]">
+          <figure className="absolute left-[30%] top-[10%]">
             <Globe />
           </figure>
         </div>
@@ -55,7 +56,9 @@ const About = () => {
 
         </div>
         {/* Grid 5 */}  
-        <div className="grid-default-color grid-5"></div>
+        <div className="grid-default-color grid-5 relative min-h-[500px] flex items-center justify-center">
+            <Frameworks />
+        </div>
       </div>
     </section>
   );
