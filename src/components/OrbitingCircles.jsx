@@ -1,5 +1,5 @@
-import {twMerge} from "tailwind-merge"
-import React from "react"
+import { twMerge } from "tailwind-merge";
+import React from "react";
 
 
 export function OrbitingCircles({
@@ -13,17 +13,17 @@ export function OrbitingCircles({
   speed = 1,
   ...props
 }) {
-  const calculatedDuration = duration / speed
+  const calculatedDuration = duration / speed;
   return (
     <>
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          className="pointer-events-none absolute inset-0 size-full"
+          className="absolute inset-0 pointer-events-none size-full"
         >
           <circle
-            className="stroke-black/10 stroke-1 dark:stroke-white/10"
+            className="stroke-1 stroke-white/10"
             cx="50%"
             cy="50%"
             r={radius}
@@ -32,28 +32,27 @@ export function OrbitingCircles({
         </svg>
       )}
       {React.Children.map(children, (child, index) => {
-        const angle = (360 / React.Children.count(children)) * index
+        const angle = (360 / React.Children.count(children)) * index;
         return (
           <div
-            style={
-              {
-                "--duration": calculatedDuration,
-                "--radius": radius,
-                "--angle": angle,
-                "--icon-size": `${iconSize}px`,
-              } 
-            }
+            style={{
+              "--duration": calculatedDuration,
+              "--radius": radius,
+              "--angle": angle,
+              "--icon-size": `${iconSize}px`,
+            }}
             className={twMerge(
-              `animate-orbit absolute flex size-(--icon-size) transform-gpu items-center justify-center rounded-full`,
-              { "[animation-direction:reverse]": reverse },
+              `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full ${
+                reverse ? "[animation-direction:reverse]" : ""
+              }`,
               className
             )}
             {...props}
           >
             {child}
           </div>
-        )
+        );
       })}
     </>
-  )
+  );
 }
